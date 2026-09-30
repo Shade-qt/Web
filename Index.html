@@ -7,374 +7,260 @@
     <title>Shubham Selvakumar | Portfolio</title>
 
     <style>
-
-        /* =========================================
-           THEME VARIABLES
-        ========================================= */
-
-        :root {
-            --bg: #0b0b0f;
-            --bg-secondary: #121218;
-            --bg-card: #15151d;
-
-            --text: #eeeeee;
-            --text-secondary: #a0a0ad;
-
-            --accent: #7c5cff;
-            --accent-hover: #6847ee;
-
-            --border: #292933;
-
-            --nav-bg: rgba(11, 11, 15, 0.92);
-
-            --shadow: rgba(0, 0, 0, 0.35);
-        }
-
-
-        /* =========================================
-           LIGHT THEME
-        ========================================= */
-
-        body.light-theme {
-            --bg: #f5f6fa;
-            --bg-secondary: #ffffff;
-            --bg-card: #ffffff;
-
-            --text: #17171c;
-            --text-secondary: #62626e;
-
-            --accent: #6547e8;
-            --accent-hover: #5235cf;
-
-            --border: #ddddE7;
-
-            --nav-bg: rgba(245, 246, 250, 0.92);
-
-            --shadow: rgba(0, 0, 0, 0.08);
-        }
-
-
-        /* =========================================
-           ECO THEME
-        ========================================= */
-
-        body.eco-theme {
-            --bg: #06140b;
-            --bg-secondary: #0a1f11;
-            --bg-card: #0d2917;
-
-            --text: #e5ffe9;
-            --text-secondary: #9bc9a5;
-
-            --accent: #25d366;
-            --accent-hover: #1db954;
-
-            --border: #1d5a30;
-
-            --nav-bg: rgba(6, 20, 11, 0.94);
-
-            --shadow: rgba(0, 30, 10, 0.45);
-        }
-
-
-        /* =========================================
-           RESET
-        ========================================= */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #0b0b0f;
+            --card: #15151d;
+            --secondary: #121218;
+            --text: #eeeeee;
+            --muted: #a0a0ad;
+            --accent: #7c5cff;
+            --accent-hover: #6847ee;
+            --border: #292933;
+            --nav: rgba(11, 11, 15, 0.94);
+            --shadow: rgba(0, 0, 0, 0.35);
+        }
+
+        /* LIGHT THEME */
+        body.light-theme {
+            --bg: #f5f6fa;
+            --card: #ffffff;
+            --secondary: #ffffff;
+            --text: #17171c;
+            --muted: #62626e;
+            --accent: #6547e8;
+            --accent-hover: #5235cf;
+            --border: #ddddE7;
+            --nav: rgba(245, 246, 250, 0.94);
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        /* ECO THEME */
+        body.eco-theme {
+            --bg: #06140b;
+            --card: #0d2917;
+            --secondary: #0a1f11;
+            --text: #e5ffe9;
+            --muted: #9bc9a5;
+            --accent: #25d366;
+            --accent-hover: #1db954;
+            --border: #1d5a30;
+            --nav: rgba(6, 20, 11, 0.95);
+            --shadow: rgba(0, 40, 10, 0.45);
+        }
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
             background: var(--bg);
-
             color: var(--text);
-
             line-height: 1.7;
-
             overflow-x: hidden;
 
             transition:
-                background-color 0.4s ease,
+                background 0.4s ease,
                 color 0.4s ease;
         }
 
-
-        /* =========================================
-           NAVIGATION
-        ========================================= */
+        /* =========================
+           NAVBAR
+        ========================= */
 
         nav {
             position: fixed;
-
             top: 0;
             left: 0;
-
             width: 100%;
 
-            padding: 15px 6%;
+            min-height: 64px;
 
-            background: var(--nav-bg);
+            padding: 12px 6%;
 
+            background: var(--nav);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
 
-            border-bottom:
-                1px solid var(--border);
+            border-bottom: 1px solid var(--border);
 
             z-index: 1000;
 
             display: flex;
-
-            justify-content: space-between;
-
             align-items: center;
-
+            justify-content: space-between;
             gap: 20px;
-
-            transition:
-                background-color 0.4s ease,
-                border-color 0.4s ease;
         }
-
 
         .logo {
             color: var(--text);
-
             font-size: 1.35rem;
-
             font-weight: bold;
-
             white-space: nowrap;
         }
-
 
         .logo span {
             color: var(--accent);
         }
 
-
         nav ul {
             list-style: none;
-
             display: flex;
-
             align-items: center;
-
             gap: 22px;
         }
 
-
         nav a {
-            color: var(--text-secondary);
-
+            color: var(--muted);
             text-decoration: none;
-
+            white-space: nowrap;
             transition: color 0.3s ease;
         }
-
 
         nav a:hover {
             color: var(--accent);
         }
 
-
-        /* =========================================
+        /* =========================
            THEME SWITCHER
-        ========================================= */
+        ========================= */
 
         .theme-switcher {
             display: flex;
-
-            align-items: center;
-
             gap: 4px;
+            padding: 4px;
 
-            padding: 5px;
-
-            border:
-                1px solid var(--border);
-
+            border: 1px solid var(--border);
             border-radius: 10px;
 
-            background: var(--bg-card);
-
-            flex-shrink: 0;
+            background: var(--card);
         }
 
-
         .theme-btn {
-            border: none;
-
-            background: transparent;
-
-            color: var(--text-secondary);
-
             width: 34px;
             height: 32px;
 
+            border: none;
             border-radius: 7px;
 
-            cursor: pointer;
+            background: transparent;
+            color: var(--muted);
 
+            cursor: pointer;
             font-size: 15px;
 
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
-
 
         .theme-btn:hover {
             background: var(--bg);
-
             color: var(--text);
         }
-
 
         .theme-btn.active {
             background: var(--accent);
-
             color: white;
         }
 
-
-        /* =========================================
-           GENERAL SECTIONS
-        ========================================= */
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
             width: 100%;
-
             max-width: 1200px;
 
             margin: auto;
-
-            padding:
-                100px 8%;
+            padding: 100px 8%;
         }
-
 
         .section-title {
-            font-size: 2rem;
-
-            margin-bottom: 40px;
-
             color: var(--text);
+            font-size: 2rem;
+            margin-bottom: 35px;
         }
-
 
         .section-title span {
             color: var(--accent);
         }
 
-
-        /* =========================================
+        /* =========================
            HERO
-        ========================================= */
+        ========================= */
 
         #home {
             min-height: 100vh;
 
             display: flex;
-
             align-items: center;
 
-            padding-top: 130px;
+            padding-top: 140px;
         }
-
 
         .hero-container {
             width: 100%;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
-            gap: 70px;
+            gap: 60px;
         }
-
 
         .hero {
             flex: 1;
-
             max-width: 700px;
         }
 
-
         .small-text {
             color: var(--accent);
-
-            font-size: 1rem;
-
             margin-bottom: 10px;
         }
 
-
         .hero h1 {
-            font-size:
-                clamp(3rem, 7vw, 5.8rem);
+            color: var(--text);
+
+            font-size: clamp(3rem, 7vw, 5.8rem);
 
             line-height: 1.05;
 
-            color: var(--text);
-
             margin-bottom: 20px;
         }
-
 
         .hero h1 span {
             color: var(--accent);
         }
 
-
         .hero h2 {
-            font-size: 1.45rem;
+            color: var(--muted);
 
+            font-size: 1.4rem;
             font-weight: normal;
-
-            color: var(--text-secondary);
 
             margin-bottom: 25px;
         }
 
-
         .hero p {
-            color: var(--text-secondary);
+            color: var(--muted);
 
             max-width: 650px;
 
             font-size: 1.05rem;
         }
 
-
-        /* =========================================
-           PROFILE PHOTO
-        ========================================= */
+        /* =========================
+           PHOTO
+        ========================= */
 
         .profile-container {
             flex-shrink: 0;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
         }
-
 
         .profile-photo-wrapper {
             width: 280px;
@@ -394,51 +280,40 @@
             box-shadow:
                 0 20px 60px var(--shadow);
 
-            transition:
-                transform 0.4s ease,
-                box-shadow 0.4s ease;
+            transition: transform 0.4s ease;
         }
-
 
         .profile-photo-wrapper:hover {
             transform: scale(1.04);
-
-            box-shadow:
-                0 25px 70px var(--shadow);
         }
-
 
         .profile-photo {
             width: 100%;
             height: 100%;
 
-            display: block;
-
             object-fit: cover;
+
+            display: block;
 
             border-radius: 50%;
 
-            border:
-                5px solid var(--bg);
+            border: 5px solid var(--bg);
 
-            background: var(--bg-card);
+            background: var(--card);
         }
 
-
-        /* =========================================
+        /* =========================
            BUTTONS
-        ========================================= */
+        ========================= */
 
         .buttons {
-            margin-top: 30px;
-
             display: flex;
-
             gap: 15px;
+
+            margin-top: 30px;
 
             flex-wrap: wrap;
         }
-
 
         .btn {
             display: inline-block;
@@ -449,114 +324,93 @@
 
             text-decoration: none;
 
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
-
         .btn-primary {
-            background: var(--accent);
-
             color: white;
+            background: var(--accent);
 
             box-shadow:
                 0 8px 25px var(--shadow);
         }
 
-
         .btn-primary:hover {
             background: var(--accent-hover);
-
             transform: translateY(-3px);
         }
 
-
         .btn-secondary {
+            color: var(--text);
+
             border:
                 1px solid var(--border);
-
-            color: var(--text);
         }
-
 
         .btn-secondary:hover {
-            border-color: var(--accent);
-
             color: var(--accent);
+            border-color: var(--accent);
         }
 
-
-        /* =========================================
+        /* =========================
            ABOUT
-        ========================================= */
+        ========================= */
 
         .about-card {
-            background: var(--bg-card);
+            padding: 30px;
+
+            background: var(--card);
 
             border:
                 1px solid var(--border);
-
-            padding: 30px;
 
             border-radius: 14px;
 
             box-shadow:
                 0 10px 30px var(--shadow);
 
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease;
+            transition: 0.3s;
         }
-
 
         .about-card:hover {
             transform: translateY(-4px);
-
             border-color: var(--accent);
         }
 
-
         .about-card p {
-            color: var(--text-secondary);
-
+            color: var(--muted);
             margin-bottom: 15px;
         }
-
 
         .about-card p:last-child {
             margin-bottom: 0;
         }
 
-
-        /* =========================================
-           INTEREST CARDS
-        ========================================= */
+        /* =========================
+           CARDS
+        ========================= */
 
         .cards {
             display: grid;
 
             grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(220px, 1fr)
-                );
+                repeat(auto-fit, minmax(220px, 1fr));
 
             gap: 20px;
         }
 
-
         .card {
-            background: var(--bg-card);
+            padding: 25px;
+
+            background: var(--card);
 
             border:
                 1px solid var(--border);
 
-            padding: 25px;
-
             border-radius: 14px;
 
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
-
 
         .card:hover {
             transform: translateY(-7px);
@@ -567,74 +421,59 @@
                 0 12px 30px var(--shadow);
         }
 
-
         .card .icon {
             font-size: 2rem;
-
             margin-bottom: 15px;
         }
 
-
         .card h3 {
             color: var(--text);
-
             margin-bottom: 8px;
         }
 
-
         .card p {
-            color: var(--text-secondary);
+            color: var(--muted);
         }
 
-
-        /* =========================================
+        /* =========================
            EDUCATION
-        ========================================= */
+        ========================= */
 
         .education {
+            padding-left: 25px;
+
             border-left:
                 3px solid var(--accent);
-
-            padding-left: 25px;
         }
-
 
         .education h3 {
             color: var(--text);
-
             font-size: 1.3rem;
         }
 
-
         .education .year {
             color: var(--accent);
-
             margin: 5px 0;
         }
 
-
         .education p {
-            color: var(--text-secondary);
+            color: var(--muted);
         }
 
-
-        /* =========================================
+        /* =========================
            FOOD
-        ========================================= */
+        ========================= */
 
         .food-list {
             display: flex;
-
             flex-wrap: wrap;
-
             gap: 15px;
         }
-
 
         .food {
             padding: 12px 20px;
 
-            background: var(--bg-card);
+            background: var(--card);
 
             border:
                 1px solid var(--border);
@@ -643,165 +482,130 @@
 
             color: var(--text);
 
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
-
         .food:hover {
-            border-color: var(--accent);
-
             color: var(--accent);
-
+            border-color: var(--accent);
             transform: translateY(-3px);
         }
 
-
-        /* =========================================
+        /* =========================
            PLAIN TEXT
-        ========================================= */
+        ========================= */
 
         .plain-text {
-            background: var(--bg-secondary);
+            padding: 25px;
+
+            background: var(--secondary);
 
             border:
                 1px solid var(--border);
 
             border-radius: 12px;
 
-            padding: 25px;
-
             white-space: pre-wrap;
+
+            overflow-x: auto;
+
+            color: var(--muted);
 
             font-family:
                 "Courier New",
                 monospace;
 
-            color: var(--text-secondary);
-
-            overflow-x: auto;
-
             font-size: 0.95rem;
         }
 
-
-        /* =========================================
+        /* =========================
            FOOTER
-        ========================================= */
+        ========================= */
 
         footer {
             text-align: center;
 
             padding: 40px 20px;
 
+            color: var(--muted);
+
             border-top:
                 1px solid var(--border);
-
-            color: var(--text-secondary);
         }
-
 
         footer span {
             color: var(--accent);
         }
 
-
-        /* =========================================
+        /* =========================
            TABLET
-        ========================================= */
+        ========================= */
 
         @media (max-width: 950px) {
 
             nav {
-                padding: 14px 4%;
+                padding: 12px 4%;
             }
-
 
             nav ul {
                 gap: 12px;
             }
 
-
             nav a {
-                font-size: 0.9rem;
+                font-size: 0.88rem;
             }
-
 
             .hero-container {
                 gap: 35px;
             }
 
-
             .profile-photo-wrapper {
                 width: 230px;
                 height: 230px;
             }
-
         }
 
-
-        /* =========================================
+        /* =========================
            MOBILE
-        ========================================= */
+        ========================= */
 
         @media (max-width: 700px) {
 
-            /* NAVIGATION */
-
             nav {
-                padding: 12px 5%;
-
                 flex-wrap: wrap;
-
                 justify-content: space-between;
-            }
 
+                padding:
+                    10px 5%;
+            }
 
             nav ul {
                 order: 3;
 
                 width: 100%;
 
-                display: flex;
-
-                justify-content: center;
-
-                gap: 18px;
-
-                padding-top: 8px;
+                justify-content: flex-start;
 
                 overflow-x: auto;
 
+                padding-top: 7px;
+                padding-bottom: 3px;
+
                 scrollbar-width: none;
             }
-
 
             nav ul::-webkit-scrollbar {
                 display: none;
             }
 
-
             nav a {
-                font-size: 0.82rem;
-
-                white-space: nowrap;
+                font-size: 0.8rem;
             }
-
-
-            .theme-switcher {
-                margin-left: auto;
-            }
-
-
-            /* HERO */
 
             #home {
-                min-height: auto;
-
                 padding-top: 170px;
-
-                padding-bottom: 80px;
+                padding-bottom: 70px;
             }
-
 
             .hero-container {
                 flex-direction: column-reverse;
@@ -811,197 +615,121 @@
                 gap: 35px;
             }
 
-
             .hero {
                 width: 100%;
             }
-
 
             .profile-photo-wrapper {
                 width: 200px;
                 height: 200px;
             }
 
-
             .hero h1 {
                 font-size:
                     clamp(2.7rem, 13vw, 4rem);
             }
 
-
             .hero h2 {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
             }
-
 
             .hero p {
                 font-size: 0.98rem;
             }
 
-
-            /* BUTTONS */
-
             .buttons {
                 justify-content: center;
             }
-
-
-            .btn {
-                padding:
-                    11px 20px;
-            }
-
-
-            /* SECTIONS */
 
             section {
                 padding:
                     75px 6%;
             }
 
-
             .section-title {
                 font-size: 1.75rem;
-
-                margin-bottom: 28px;
             }
-
-
-            /* CARDS */
 
             .cards {
                 grid-template-columns: 1fr;
             }
 
-
-            .card {
-                padding: 22px;
-            }
-
-
-            /* ABOUT */
-
             .about-card {
                 padding: 22px;
             }
-
-
-            /* EDUCATION */
 
             .education {
                 padding-left: 18px;
             }
 
-
             .education h3 {
                 font-size: 1.1rem;
             }
 
-
-            /* PLAIN TEXT */
-
             .plain-text {
                 padding: 18px;
 
-                font-size: 0.8rem;
+                font-size: 0.78rem;
             }
-
         }
 
-
-        /* =========================================
-           SMALL MOBILE
-        ========================================= */
+        /* =========================
+           SMALL PHONES
+        ========================= */
 
         @media (max-width: 400px) {
-
-            nav {
-                padding:
-                    10px 4%;
-            }
-
 
             .logo {
                 font-size: 1.1rem;
             }
 
-
             .theme-btn {
                 width: 30px;
                 height: 29px;
-
                 font-size: 13px;
             }
-
 
             nav ul {
                 gap: 13px;
             }
 
-
             nav a {
-                font-size: 0.75rem;
+                font-size: 0.74rem;
             }
-
 
             #home {
                 padding-top: 160px;
             }
-
 
             .profile-photo-wrapper {
                 width: 170px;
                 height: 170px;
             }
 
-
             .hero h1 {
                 font-size: 2.6rem;
             }
 
-
-            .hero h2 {
-                font-size: 1rem;
-            }
-
-
             .buttons {
                 flex-direction: column;
-
-                width: 100%;
             }
-
 
             .btn {
                 width: 100%;
-
                 text-align: center;
             }
-
-
-            .food-list {
-                gap: 10px;
-            }
-
 
             .food {
                 width: 100%;
-
                 text-align: center;
             }
-
         }
-
     </style>
 </head>
 
-
 <body>
 
-
-    <!-- =========================================
-         NAVIGATION
-    ========================================== -->
+    <!-- NAVIGATION -->
 
     <nav>
 
@@ -1009,62 +737,37 @@
             Shubham<span>.</span>
         </div>
 
-
         <ul>
-
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#interests">Interests</a>
-            </li>
-
-            <li>
-                <a href="#education">Education</a>
-            </li>
-
-            <li>
-                <a href="#plain-text">Plain Text</a>
-            </li>
-
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#plain-text">Plain Text</a></li>
         </ul>
-
-
-        <!-- THEME SWITCHER -->
 
         <div class="theme-switcher">
 
             <button
                 class="theme-btn active"
                 data-theme="dark"
-                title="Dark Theme"
-                aria-label="Dark Theme"
-                onclick="setTheme('dark')">
+                onclick="setTheme('dark')"
+                title="Dark theme">
                 🌙
             </button>
-
 
             <button
                 class="theme-btn"
                 data-theme="light"
-                title="Light Theme"
-                aria-label="Light Theme"
-                onclick="setTheme('light')">
+                onclick="setTheme('light')"
+                title="Light theme">
                 ☀️
             </button>
-
 
             <button
                 class="theme-btn"
                 data-theme="eco"
-                title="Eco Theme"
-                aria-label="Eco Theme"
-                onclick="setTheme('eco')">
+                onclick="setTheme('eco')"
+                title="Eco theme">
                 🌿
             </button>
 
@@ -1073,16 +776,11 @@
     </nav>
 
 
-    <!-- =========================================
-         HOME
-    ========================================== -->
+    <!-- HOME -->
 
     <section id="home">
 
         <div class="hero-container">
-
-
-            <!-- PROFILE INFORMATION -->
 
             <div class="hero">
 
@@ -1090,16 +788,13 @@
                     Hello, I'm
                 </div>
 
-
                 <h1>
                     Shubham <span>Selvakumar</span>
                 </h1>
 
-
                 <h2>
                     2nd Year B.E. Computer Science & Engineering Student
                 </h2>
-
 
                 <p>
                     Welcome to my little corner of the internet.
@@ -1108,7 +803,6 @@
                     and meeting interesting people.
                 </p>
 
-
                 <div class="buttons">
 
                     <a
@@ -1116,7 +810,6 @@
                         class="btn btn-primary">
                         Know More
                     </a>
-
 
                     <a
                         href="#plain-text"
@@ -1129,24 +822,24 @@
             </div>
 
 
-            <!-- =====================================
-                 PROFILE PHOTO
-            ====================================== -->
+            <!--
+                IMPORTANT FOR GITHUB PAGES:
+
+                Keep photo.png in the same folder
+                as index.html.
+
+                The ./ prefix makes this a relative path.
+            -->
 
             <div class="profile-container">
 
                 <div class="profile-photo-wrapper">
 
-                    <!--
-                        IMPORTANT:
-                        Keep photo.png in the same folder
-                        as this index.html file.
-                    -->
-
                     <img
-                        src="photo.png"
+                        src="./photo.png"
                         alt="Photo of Shubham Selvakumar"
-                        class="profile-photo">
+                        class="profile-photo"
+                        onerror="this.style.display='none'; this.parentElement.classList.add('photo-missing');">
 
                 </div>
 
@@ -1157,16 +850,13 @@
     </section>
 
 
-    <!-- =========================================
-         ABOUT
-    ========================================== -->
+    <!-- ABOUT -->
 
     <section id="about">
 
         <h2 class="section-title">
             About <span>Me</span>
         </h2>
-
 
         <div class="about-card">
 
@@ -1176,19 +866,16 @@
                 at Jain Institute of Technology.
             </p>
 
-
             <p>
                 I'm someone who enjoys things that make me think.
                 I particularly enjoy playing games that require
                 strategy, logical thinking, and problem solving.
             </p>
 
-
             <p>
                 I also enjoy interacting with smart people who are
                 humble, approachable, and easy to talk to.
             </p>
-
 
             <p>
                 I'm still exploring the huge world of Computer Science,
@@ -1201,9 +888,7 @@
     </section>
 
 
-    <!-- =========================================
-         INTERESTS
-    ========================================== -->
+    <!-- INTERESTS -->
 
     <section id="interests">
 
@@ -1211,15 +896,10 @@
             My <span>Interests</span>
         </h2>
 
-
         <div class="cards">
 
-
             <div class="card">
-
-                <div class="icon">
-                    🎮
-                </div>
+                <div class="icon">🎮</div>
 
                 <h3>
                     Brain Games
@@ -1229,15 +909,10 @@
                     I enjoy games that challenge my thinking,
                     strategy, logic, and problem-solving skills.
                 </p>
-
             </div>
 
-
             <div class="card">
-
-                <div class="icon">
-                    💻
-                </div>
+                <div class="icon">💻</div>
 
                 <h3>
                     Computer Science
@@ -1247,15 +922,10 @@
                     I'm exploring different areas of CSE and
                     continuously learning more about technology.
                 </p>
-
             </div>
 
-
             <div class="card">
-
-                <div class="icon">
-                    🧠
-                </div>
+                <div class="icon">🧠</div>
 
                 <h3>
                     Problem Solving
@@ -1265,15 +935,10 @@
                     I like situations where I have to think,
                     experiment, and figure out a solution.
                 </p>
-
             </div>
 
-
             <div class="card">
-
-                <div class="icon">
-                    🤝
-                </div>
+                <div class="icon">🤝</div>
 
                 <h3>
                     Good Conversations
@@ -1283,7 +948,6 @@
                     I enjoy talking with intelligent, humble,
                     and approachable people.
                 </p>
-
             </div>
 
         </div>
@@ -1291,16 +955,13 @@
     </section>
 
 
-    <!-- =========================================
-         FOOD
-    ========================================== -->
+    <!-- FOOD -->
 
     <section id="food">
 
         <h2 class="section-title">
             Things I <span>Love</span>
         </h2>
-
 
         <div class="food-list">
 
@@ -1321,16 +982,13 @@
     </section>
 
 
-    <!-- =========================================
-         EDUCATION
-    ========================================== -->
+    <!-- EDUCATION -->
 
     <section id="education">
 
         <h2 class="section-title">
             My <span>Education</span>
         </h2>
-
 
         <div class="education">
 
@@ -1339,11 +997,9 @@
                 Computer Science & Engineering
             </h3>
 
-
             <div class="year">
                 Currently in 2nd Year
             </div>
-
 
             <p>
                 Jain Institute of Technology
@@ -1354,16 +1010,13 @@
     </section>
 
 
-    <!-- =========================================
-         PLAIN TEXT
-    ========================================== -->
+    <!-- PLAIN TEXT -->
 
     <section id="plain-text">
 
         <h2 class="section-title">
             Plain <span>Text</span>
         </h2>
-
 
         <div class="plain-text">
 
@@ -1413,9 +1066,7 @@ Currently in 2nd Year
     </section>
 
 
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -1427,91 +1078,49 @@ Currently in 2nd Year
     </footer>
 
 
-    <!-- =========================================
-         THEME JAVASCRIPT
-    ========================================== -->
+    <!-- THEME JAVASCRIPT -->
 
     <script>
 
         function setTheme(theme) {
 
-            const body = document.body;
-
-
-            /*
-                Remove all previous themes
-            */
-
-            body.classList.remove(
+            document.body.classList.remove(
                 "light-theme",
                 "eco-theme"
             );
 
-
-            /*
-                Apply selected theme
-            */
-
             if (theme === "light") {
-
-                body.classList.add(
+                document.body.classList.add(
                     "light-theme"
                 );
-
             }
-
 
             if (theme === "eco") {
-
-                body.classList.add(
+                document.body.classList.add(
                     "eco-theme"
                 );
-
             }
-
-
-            /*
-                Update active button
-            */
 
             document
                 .querySelectorAll(".theme-btn")
                 .forEach(button => {
 
-                    button.classList.remove(
-                        "active"
-                    );
-
+                    button.classList.remove("active");
 
                     if (
                         button.dataset.theme === theme
                     ) {
-
-                        button.classList.add(
-                            "active"
-                        );
-
+                        button.classList.add("active");
                     }
 
                 });
-
-
-            /*
-                Remember selected theme
-            */
 
             localStorage.setItem(
                 "portfolio-theme",
                 theme
             );
-
         }
 
-
-        /*
-            Load saved theme
-            Default = Dark
-        */
 
         const savedTheme =
             localStorage.getItem(
