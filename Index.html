@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shubham Selvakumar | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0f;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            background: rgba(11, 11, 15, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #24242c;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #7c5cff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #bdbdc7;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #8f78ff;
+        }
+
+        /* General */
+        section {
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .section-title span {
+            color: #7c5cff;
+        }
+
+        /* Hero */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+        }
+
+        .hero {
+            max-width: 800px;
+        }
+
+        .hero .small-text {
+            color: #8f78ff;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.05;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #7c5cff;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: #aaaab5;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #8f8f9a;
+            max-width: 650px;
+            font-size: 1.05rem;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #7c5cff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #6847ee;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #33333d;
+            color: #ddd;
+        }
+
+        .btn-secondary:hover {
+            border-color: #7c5cff;
+            color: #9b89ff;
+        }
+
+        /* About */
+        .about-card {
+            background: #121218;
+            border: 1px solid #24242c;
+            padding: 30px;
+            border-radius: 14px;
+        }
+
+        .about-card p {
+            color: #b2b2bd;
+            margin-bottom: 15px;
+        }
+
+        /* Interests */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #121218;
+            border: 1px solid #24242c;
+            padding: 25px;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #7c5cff;
+        }
+
+        .card .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #8f8f9a;
+        }
+
+        /* Education */
+        .education {
+            border-left: 3px solid #7c5cff;
+            padding-left: 25px;
+        }
+
+        .education h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+        }
+
+        .education .year {
+            color: #8f78ff;
+            margin: 5px 0;
+        }
+
+        .education p {
+            color: #9696a2;
+        }
+
+        /* Food */
+        .food-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .food {
+            padding: 12px 20px;
+            background: #16161e;
+            border: 1px solid #2b2b35;
+            border-radius: 50px;
+            color: #cfcfd8;
+        }
+
+        /* Plain text */
+        .plain-text {
+            background: #08080b;
+            border: 1px solid #292933;
+            border-radius: 12px;
+            padding: 25px;
+            white-space: pre-wrap;
+            font-family: "Courier New", monospace;
+            color: #aaaab5;
+            overflow-x: auto;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #24242c;
+            color: #666673;
+        }
+
+        footer span {
+            color: #7c5cff;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Shubham<span>.</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#plain-text">Plain Text</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero -->
+    <section id="home">
+        <div class="hero">
+            <div class="small-text">Hello, I'm</div>
+
+            <h1>Shubham <span>Selvakumar</span></h1>
+
+            <h2>2nd Year B.E. Computer Science & Engineering Student</h2>
+
+            <p>
+                Welcome to my little corner of the internet.
+                I'm a CSE student at Jain Institute of Technology,
+                interested in technology, games, problem solving,
+                and meeting interesting people.
+            </p>
+
+            <div class="buttons">
+                <a href="#about" class="btn btn-primary">Know More</a>
+                <a href="#plain-text" class="btn btn-secondary">Plain Text</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About -->
+    <section id="about">
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <div class="about-card">
+            <p>
+                Hey! I'm Shubham Selvakumar, currently pursuing my
+                2nd year B.E. in Computer Science and Engineering
+                at Jain Institute of Technology.
+            </p>
+
+            <p>
+                I'm someone who enjoys things that make me think.
+                I particularly enjoy playing games that require
+                strategy, logical thinking, and problem solving.
+            </p>
+
+            <p>
+                I also enjoy interacting with smart people who are
+                humble, approachable, and easy to talk to.
+            </p>
+
+            <p>
+                I'm still exploring the huge world of Computer Science,
+                learning new things and figuring out what I want to
+                build next.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Interests -->
+    <section id="interests">
+        <h2 class="section-title">My <span>Interests</span></h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🎮</div>
+                <h3>Brain Games</h3>
+                <p>
+                    I enjoy games that challenge my thinking,
+                    strategy, logic, and problem-solving skills.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Computer Science</h3>
+                <p>
+                    I'm exploring different areas of CSE and
+                    continuously learning more about technology.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧠</div>
+                <h3>Problem Solving</h3>
+                <p>
+                    I like situations where I have to think,
+                    experiment, and figure out a solution.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤝</div>
+                <h3>Good Conversations</h3>
+                <p>
+                    I enjoy talking with intelligent, humble,
+                    and approachable people.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Food -->
+    <section id="food">
+        <h2 class="section-title">Things I <span>Love</span></h2>
+
+        <div class="food-list">
+            <div class="food">🌶️ Vada Pav</div>
+            <div class="food">🥔 Aloo Paratha</div>
+            <div class="food">🌶️ Chili Chutney</div>
+        </div>
+    </section>
+
+
+    <!-- Education -->
+    <section id="education">
+        <h2 class="section-title">My <span>Education</span></h2>
+
+        <div class="education">
+            <h3>Bachelor of Engineering — Computer Science & Engineering</h3>
+
+            <div class="year">Currently in 2nd Year</div>
+
+            <p>
+                Jain Institute of Technology
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Plain Text -->
+    <section id="plain-text">
+        <h2 class="section-title">Plain <span>Text</span></h2>
+
+        <div class="plain-text">SHUBHAM SELVAKUMAR
+
+2nd Year B.E. Computer Science & Engineering Student
+Jain Institute of Technology
+
+ABOUT ME
+I'm Shubham Selvakumar, currently pursuing my 2nd year
+B.E. in Computer Science and Engineering at Jain Institute
+of Technology.
+
+I enjoy playing games, especially games that require me
+to use my brain, think strategically, and solve problems.
+
+I also enjoy interacting with smart people who are humble,
+approachable, and easy to talk to.
+
+INTERESTS
+- Computer Science
+- Problem Solving
+- Brain Games
+- Strategy Games
+- Meeting Interesting People
+
+FAVORITE FOOD
+- Vada Pav
+- Aloo Paratha
+- Chili Chutney
+
+EDUCATION
+B.E. Computer Science & Engineering
+Jain Institute of Technology
+Currently in 2nd Year</div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Built with curiosity by <span>Shubham Selvakumar</span>
+        </p>
+    </footer>
+
+</body>
+</html>
