@@ -7,6 +7,56 @@
     <title>Shubham Selvakumar | Portfolio</title>
 
     <style>
+        /* =========================
+           THEME VARIABLES
+        ========================== */
+
+        :root {
+            --bg: #0b0b0f;
+            --bg-secondary: #121218;
+            --bg-card: #15151d;
+            --text: #e8e8e8;
+            --text-secondary: #a0a0ad;
+            --accent: #7c5cff;
+            --accent-hover: #6847ee;
+            --border: #292933;
+            --nav-bg: rgba(11, 11, 15, 0.90);
+            --shadow: rgba(0, 0, 0, 0.35);
+        }
+
+        /* LIGHT THEME */
+        body.light-theme {
+            --bg: #f5f6fa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text: #17171c;
+            --text-secondary: #62626e;
+            --accent: #6547e8;
+            --accent-hover: #5235cf;
+            --border: #ddddE7;
+            --nav-bg: rgba(245, 246, 250, 0.92);
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        /* ECO THEME */
+        body.eco-theme {
+            --bg: #06140b;
+            --bg-secondary: #0a1f11;
+            --bg-card: #0d2917;
+            --text: #e5ffe9;
+            --text-secondary: #9bc9a5;
+            --accent: #25d366;
+            --accent-hover: #1db954;
+            --border: #1d5a30;
+            --nav-bg: rgba(6, 20, 11, 0.94);
+            --shadow: rgba(0, 30, 10, 0.45);
+        }
+
+
+        /* =========================
+           RESET
+        ========================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -19,54 +69,122 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0b0b0f;
-            color: #e8e8e8;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
+
+            transition:
+                background-color 0.4s ease,
+                color 0.4s ease;
         }
 
-        /* Navigation */
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 18px 8%;
-            background: rgba(11, 11, 15, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #24242c;
+
+            padding: 16px 7%;
+
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+
             z-index: 1000;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            transition:
+                background-color 0.4s ease,
+                border-color 0.4s ease;
         }
 
         .logo {
-            color: #ffffff;
-            font-size: 1.3rem;
+            color: var(--text);
+            font-size: 1.35rem;
             font-weight: bold;
         }
 
         .logo span {
-            color: #7c5cff;
+            color: var(--accent);
         }
 
         nav ul {
             list-style: none;
+
             display: flex;
-            gap: 28px;
+            align-items: center;
+            gap: 25px;
         }
 
         nav a {
-            color: #bdbdc7;
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: 0.3s;
+
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #8f78ff;
+            color: var(--accent);
         }
 
-        /* General */
+
+        /* =========================
+           THEME SWITCHER
+        ========================== */
+
+        .theme-switcher {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            padding: 5px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: var(--bg-card);
+        }
+
+        .theme-btn {
+            border: none;
+            background: transparent;
+
+            color: var(--text-secondary);
+
+            padding: 7px 9px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover {
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .theme-btn.active {
+            color: white;
+            background: var(--accent);
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
+
         section {
             padding: 100px 10%;
             max-width: 1200px;
@@ -76,27 +194,33 @@
         .section-title {
             font-size: 2rem;
             margin-bottom: 40px;
-            color: #ffffff;
+            color: var(--text);
         }
 
         .section-title span {
-            color: #7c5cff;
+            color: var(--accent);
         }
 
-        /* Hero */
+
+        /* =========================
+           HERO
+        ========================== */
+
         #home {
             min-height: 100vh;
+
             display: flex;
             align-items: center;
-            padding-top: 120px;
+
+            padding-top: 130px;
         }
 
         .hero {
-            max-width: 800px;
+            max-width: 850px;
         }
 
-        .hero .small-text {
-            color: #8f78ff;
+        .small-text {
+            color: var(--accent);
             font-size: 1rem;
             margin-bottom: 10px;
         }
@@ -104,180 +228,287 @@
         .hero h1 {
             font-size: clamp(3rem, 8vw, 6rem);
             line-height: 1.05;
-            color: #ffffff;
+
+            color: var(--text);
+
             margin-bottom: 20px;
         }
 
         .hero h1 span {
-            color: #7c5cff;
+            color: var(--accent);
         }
 
         .hero h2 {
             font-size: 1.5rem;
             font-weight: normal;
-            color: #aaaab5;
+
+            color: var(--text-secondary);
+
             margin-bottom: 25px;
         }
 
         .hero p {
-            color: #8f8f9a;
-            max-width: 650px;
+            color: var(--text-secondary);
+
+            max-width: 680px;
+
             font-size: 1.05rem;
         }
 
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
         .buttons {
             margin-top: 30px;
+
             display: flex;
             gap: 15px;
+
             flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
+
             padding: 12px 24px;
+
             border-radius: 8px;
+
             text-decoration: none;
-            transition: 0.3s;
+
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
-            background: #7c5cff;
+            background: var(--accent);
             color: white;
+
+            box-shadow: 0 8px 25px var(--shadow);
         }
 
         .btn-primary:hover {
-            background: #6847ee;
-            transform: translateY(-2px);
+            background: var(--accent-hover);
+
+            transform: translateY(-3px);
         }
 
         .btn-secondary {
-            border: 1px solid #33333d;
-            color: #ddd;
+            border: 1px solid var(--border);
+
+            color: var(--text);
         }
 
         .btn-secondary:hover {
-            border-color: #7c5cff;
-            color: #9b89ff;
+            border-color: var(--accent);
+
+            color: var(--accent);
         }
 
-        /* About */
+
+        /* =========================
+           ABOUT
+        ========================== */
+
         .about-card {
-            background: #121218;
-            border: 1px solid #24242c;
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
             padding: 30px;
+
             border-radius: 14px;
+
+            box-shadow: 0 10px 30px var(--shadow);
+
+            transition: all 0.4s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-4px);
         }
 
         .about-card p {
-            color: #b2b2bd;
+            color: var(--text-secondary);
+
             margin-bottom: 15px;
         }
 
-        /* Interests */
+
+        /* =========================
+           INTEREST CARDS
+        ========================== */
+
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
             gap: 20px;
         }
 
         .card {
-            background: #121218;
-            border: 1px solid #24242c;
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
             padding: 25px;
+
             border-radius: 14px;
-            transition: 0.3s;
+
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: #7c5cff;
+            transform: translateY(-7px);
+
+            border-color: var(--accent);
+
+            box-shadow:
+                0 12px 30px var(--shadow);
         }
 
         .card .icon {
             font-size: 2rem;
+
             margin-bottom: 15px;
         }
 
         .card h3 {
-            color: #ffffff;
+            color: var(--text);
+
             margin-bottom: 8px;
         }
 
         .card p {
-            color: #8f8f9a;
+            color: var(--text-secondary);
         }
 
-        /* Education */
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
         .education {
-            border-left: 3px solid #7c5cff;
+            border-left: 3px solid var(--accent);
+
             padding-left: 25px;
         }
 
         .education h3 {
-            color: #ffffff;
+            color: var(--text);
+
             font-size: 1.3rem;
         }
 
         .education .year {
-            color: #8f78ff;
+            color: var(--accent);
+
             margin: 5px 0;
         }
 
         .education p {
-            color: #9696a2;
+            color: var(--text-secondary);
         }
 
-        /* Food */
+
+        /* =========================
+           FOOD
+        ========================== */
+
         .food-list {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 15px;
         }
 
         .food {
             padding: 12px 20px;
-            background: #16161e;
-            border: 1px solid #2b2b35;
+
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
             border-radius: 50px;
-            color: #cfcfd8;
+
+            color: var(--text);
+
+            transition: all 0.3s ease;
         }
 
-        /* Plain text */
+        .food:hover {
+            border-color: var(--accent);
+
+            color: var(--accent);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           PLAIN TEXT
+        ========================== */
+
         .plain-text {
-            background: #08080b;
-            border: 1px solid #292933;
+            background: var(--bg-secondary);
+
+            border: 1px solid var(--border);
+
             border-radius: 12px;
+
             padding: 25px;
+
             white-space: pre-wrap;
+
             font-family: "Courier New", monospace;
-            color: #aaaab5;
+
+            color: var(--text-secondary);
+
             overflow-x: auto;
+
+            transition: all 0.4s ease;
         }
 
-        /* Footer */
+
+        /* =========================
+           FOOTER
+        ========================== */
+
         footer {
             text-align: center;
+
             padding: 40px 20px;
-            border-top: 1px solid #24242c;
-            color: #666673;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--text-secondary);
         }
 
         footer span {
-            color: #7c5cff;
+            color: var(--accent);
         }
 
-        /* Mobile */
-        @media (max-width: 700px) {
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 850px) {
+
             nav {
                 padding: 15px 5%;
             }
 
             nav ul {
-                gap: 12px;
+                display: none;
             }
 
-            nav a {
-                font-size: 0.85rem;
+            .theme-switcher {
+                margin-left: auto;
             }
 
             section {
@@ -292,14 +523,34 @@
                 font-size: 1.2rem;
             }
         }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .theme-btn {
+                padding: 6px 8px;
+                font-size: 14px;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- Navigation -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
     <nav>
-        <div class="logo">Shubham<span>.</span></div>
+
+        <div class="logo">
+            Shubham<span>.</span>
+        </div>
 
         <ul>
             <li><a href="#home">Home</a></li>
@@ -308,17 +559,60 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#plain-text">Plain Text</a></li>
         </ul>
+
+
+        <!-- THEME SWITCHER -->
+
+        <div class="theme-switcher">
+
+            <button
+                class="theme-btn active"
+                data-theme="dark"
+                title="Dark Theme"
+                onclick="setTheme('dark')">
+                🌙
+            </button>
+
+            <button
+                class="theme-btn"
+                data-theme="light"
+                title="Light Theme"
+                onclick="setTheme('light')">
+                ☀️
+            </button>
+
+            <button
+                class="theme-btn"
+                data-theme="eco"
+                title="Eco Theme"
+                onclick="setTheme('eco')">
+                🌿
+            </button>
+
+        </div>
+
     </nav>
 
 
-    <!-- Hero -->
+    <!-- =========================
+         HERO
+    ========================== -->
+
     <section id="home">
+
         <div class="hero">
-            <div class="small-text">Hello, I'm</div>
 
-            <h1>Shubham <span>Selvakumar</span></h1>
+            <div class="small-text">
+                Hello, I'm
+            </div>
 
-            <h2>2nd Year B.E. Computer Science & Engineering Student</h2>
+            <h1>
+                Shubham <span>Selvakumar</span>
+            </h1>
+
+            <h2>
+                2nd Year B.E. Computer Science & Engineering Student
+            </h2>
 
             <p>
                 Welcome to my little corner of the internet.
@@ -328,18 +622,38 @@
             </p>
 
             <div class="buttons">
-                <a href="#about" class="btn btn-primary">Know More</a>
-                <a href="#plain-text" class="btn btn-secondary">Plain Text</a>
+
+                <a
+                    href="#about"
+                    class="btn btn-primary">
+                    Know More
+                </a>
+
+                <a
+                    href="#plain-text"
+                    class="btn btn-secondary">
+                    Plain Text
+                </a>
+
             </div>
+
         </div>
+
     </section>
 
 
-    <!-- About -->
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
     <section id="about">
-        <h2 class="section-title">About <span>Me</span></h2>
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
 
         <div class="about-card">
+
             <p>
                 Hey! I'm Shubham Selvakumar, currently pursuing my
                 2nd year B.E. in Computer Science and Engineering
@@ -362,94 +676,170 @@
                 learning new things and figuring out what I want to
                 build next.
             </p>
+
         </div>
+
     </section>
 
 
-    <!-- Interests -->
+    <!-- =========================
+         INTERESTS
+    ========================== -->
+
     <section id="interests">
-        <h2 class="section-title">My <span>Interests</span></h2>
+
+        <h2 class="section-title">
+            My <span>Interests</span>
+        </h2>
 
         <div class="cards">
 
             <div class="card">
+
                 <div class="icon">🎮</div>
-                <h3>Brain Games</h3>
+
+                <h3>
+                    Brain Games
+                </h3>
+
                 <p>
                     I enjoy games that challenge my thinking,
                     strategy, logic, and problem-solving skills.
                 </p>
+
             </div>
 
+
             <div class="card">
+
                 <div class="icon">💻</div>
-                <h3>Computer Science</h3>
+
+                <h3>
+                    Computer Science
+                </h3>
+
                 <p>
                     I'm exploring different areas of CSE and
                     continuously learning more about technology.
                 </p>
+
             </div>
 
+
             <div class="card">
+
                 <div class="icon">🧠</div>
-                <h3>Problem Solving</h3>
+
+                <h3>
+                    Problem Solving
+                </h3>
+
                 <p>
                     I like situations where I have to think,
                     experiment, and figure out a solution.
                 </p>
+
             </div>
 
+
             <div class="card">
+
                 <div class="icon">🤝</div>
-                <h3>Good Conversations</h3>
+
+                <h3>
+                    Good Conversations
+                </h3>
+
                 <p>
                     I enjoy talking with intelligent, humble,
                     and approachable people.
                 </p>
+
             </div>
 
         </div>
+
     </section>
 
 
-    <!-- Food -->
+    <!-- =========================
+         FOOD
+    ========================== -->
+
     <section id="food">
-        <h2 class="section-title">Things I <span>Love</span></h2>
+
+        <h2 class="section-title">
+            Things I <span>Love</span>
+        </h2>
 
         <div class="food-list">
-            <div class="food">🌶️ Vada Pav</div>
-            <div class="food">🥔 Aloo Paratha</div>
-            <div class="food">🌶️ Chili Chutney</div>
+
+            <div class="food">
+                🌶️ Vada Pav
+            </div>
+
+            <div class="food">
+                🥔 Aloo Paratha
+            </div>
+
+            <div class="food">
+                🌶️ Chili Chutney
+            </div>
+
         </div>
+
     </section>
 
 
-    <!-- Education -->
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
     <section id="education">
-        <h2 class="section-title">My <span>Education</span></h2>
+
+        <h2 class="section-title">
+            My <span>Education</span>
+        </h2>
 
         <div class="education">
-            <h3>Bachelor of Engineering — Computer Science & Engineering</h3>
 
-            <div class="year">Currently in 2nd Year</div>
+            <h3>
+                Bachelor of Engineering — Computer Science & Engineering
+            </h3>
+
+            <div class="year">
+                Currently in 2nd Year
+            </div>
 
             <p>
                 Jain Institute of Technology
             </p>
+
         </div>
+
     </section>
 
 
-    <!-- Plain Text -->
-    <section id="plain-text">
-        <h2 class="section-title">Plain <span>Text</span></h2>
+    <!-- =========================
+         PLAIN TEXT
+    ========================== -->
 
-        <div class="plain-text">SHUBHAM SELVAKUMAR
+    <section id="plain-text">
+
+        <h2 class="section-title">
+            Plain <span>Text</span>
+        </h2>
+
+        <div class="plain-text">
+
+SHUBHAM SELVAKUMAR
 
 2nd Year B.E. Computer Science & Engineering Student
 Jain Institute of Technology
 
+
 ABOUT ME
+
 I'm Shubham Selvakumar, currently pursuing my 2nd year
 B.E. in Computer Science and Engineering at Jain Institute
 of Technology.
@@ -460,31 +850,96 @@ to use my brain, think strategically, and solve problems.
 I also enjoy interacting with smart people who are humble,
 approachable, and easy to talk to.
 
+
 INTERESTS
+
 - Computer Science
 - Problem Solving
 - Brain Games
 - Strategy Games
 - Meeting Interesting People
 
+
 FAVORITE FOOD
+
 - Vada Pav
 - Aloo Paratha
 - Chili Chutney
 
+
 EDUCATION
+
 B.E. Computer Science & Engineering
 Jain Institute of Technology
-Currently in 2nd Year</div>
+Currently in 2nd Year
+
+        </div>
+
     </section>
 
 
-    <!-- Footer -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
+
         <p>
-            Built with curiosity by <span>Shubham Selvakumar</span>
+            Built with curiosity by
+            <span>Shubham Selvakumar</span>
         </p>
+
     </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function setTheme(theme) {
+
+            const body = document.body;
+
+            // Remove previous themes
+            body.classList.remove(
+                "light-theme",
+                "eco-theme"
+            );
+
+            // Apply selected theme
+            if (theme === "light") {
+                body.classList.add("light-theme");
+            }
+
+            if (theme === "eco") {
+                body.classList.add("eco-theme");
+            }
+
+            // Update active button
+            document.querySelectorAll(".theme-btn").forEach(button => {
+
+                button.classList.remove("active");
+
+                if (button.dataset.theme === theme) {
+                    button.classList.add("active");
+                }
+
+            });
+
+            // Save theme
+            localStorage.setItem("portfolio-theme", theme);
+        }
+
+
+        // Load saved theme
+        const savedTheme =
+            localStorage.getItem("portfolio-theme") || "dark";
+
+        setTheme(savedTheme);
+
+    </script>
 
 </body>
 </html>
